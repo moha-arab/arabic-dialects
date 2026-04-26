@@ -2042,11 +2042,10 @@ body.theme-night .kbd-overlay { background: rgba(0,2,8,0.97); }
 .onboard-hint {
   position: fixed;
   bottom: 24px;
-  left: 50%;
-  transform: translateX(-50%) translateY(20px);
+  right: 24px;
   background: linear-gradient(180deg, #3a2c19 0%, #251907 100%);
   color: var(--paper);
-  padding: 14px 22px;
+  padding: 14px 18px 14px 22px;
   border: 1px solid var(--gold-bright);
   border-radius: 4px;
   font-family: 'EB Garamond', serif;
@@ -2056,7 +2055,8 @@ body.theme-night .kbd-overlay { background: rgba(0,2,8,0.97); }
   display: none;
   align-items: center;
   gap: 14px;
-  max-width: 90vw;
+  max-width: min(420px, calc(100vw - 48px));
+  line-height: 1.4;
 }
 .onboard-hint.show { display: flex; animation: slideUp 0.3s ease-out; }
 .onboard-hint button {
@@ -2069,9 +2069,21 @@ body.theme-night .kbd-overlay { background: rgba(0,2,8,0.97); }
   letter-spacing: 1.4px;
   cursor: pointer;
   border-radius: 2px;
+  flex-shrink: 0;
 }
 .onboard-hint .dismiss { background: none; color: var(--ink-faded); padding: 4px 6px; font-size: 16px; line-height: 1; }
 .onboard-hint .dismiss:hover { color: var(--paper); }
+@media (max-width: 768px) {
+  /* Stay above the back-to-top + compare-fab; sit centered with safe insets. */
+  .onboard-hint {
+    bottom: 80px;
+    right: 12px;
+    left: 12px;
+    max-width: none;
+    padding: 12px 14px;
+    font-size: 13px;
+  }
+}
 
 /* === Pulse on selected zone === */
 @keyframes zoneSelectPulse {
@@ -4810,20 +4822,27 @@ function showToast(msg) {
 }
 function copyShareLink(did) {
   const url = window.location.origin + window.location.pathname + '#dialect/' + did;
-  if (navigator.clipboard && window.isSecureContext) {
-    navigator.clipboard.writeText(url).then(() => {
-      showToast('✓ Link copied');
-    }).catch(() => prompt('Copy this link:', url));
-  } else {
-    // Fallback for non-secure contexts (file://, http://)
+  const fallback = () => {
+    // execCommand fallback for non-secure contexts and for browsers that
+    // deny clipboard.writeText (e.g. headless renders, some embedded views).
     const ta = document.createElement('textarea');
     ta.value = url;
+    ta.setAttribute('readonly', '');
     ta.style.cssText = 'position:fixed;top:-1000px;left:0;opacity:0';
     document.body.appendChild(ta);
     ta.select();
-    try { document.execCommand('copy'); showToast('✓ Link copied'); }
-    catch (_) { prompt('Copy this link:', url); }
+    let ok = false;
+    try { ok = document.execCommand('copy'); } catch (_) {}
     document.body.removeChild(ta);
+    if (ok) showToast('✓ Link copied');
+    else { showToast('⚠ Copy failed — long-press the URL to copy'); prompt('Copy this link:', url); }
+  };
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(url)
+      .then(() => showToast('✓ Link copied'))
+      .catch(fallback);
+  } else {
+    fallback();
   }
 }
 
