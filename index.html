@@ -2043,8 +2043,11 @@ body.theme-night .kbd-overlay { background: rgba(0,2,8,0.97); }
   position: fixed;
   bottom: 24px;
   right: 24px;
+  /* Use literal cream so the hint stays legible regardless of theme — the
+     bg is a dark brown gradient in both day and night. var(--paper) flips
+     to dark blue in night-mode and would vanish here. */
   background: linear-gradient(180deg, #3a2c19 0%, #251907 100%);
-  color: var(--paper);
+  color: #f4e9cf;
   padding: 14px 18px 14px 22px;
   border: 1px solid var(--gold-bright);
   border-radius: 4px;
@@ -2071,8 +2074,9 @@ body.theme-night .kbd-overlay { background: rgba(0,2,8,0.97); }
   border-radius: 2px;
   flex-shrink: 0;
 }
-.onboard-hint .dismiss { background: none; color: var(--ink-faded); padding: 4px 6px; font-size: 16px; line-height: 1; }
-.onboard-hint .dismiss:hover { color: var(--paper); }
+.onboard-hint .dismiss { background: none; color: rgba(244,233,207,0.55); padding: 4px 6px; font-size: 16px; line-height: 1; cursor: pointer; }
+.onboard-hint .dismiss:hover { color: #f4e9cf; background: rgba(244,233,207,0.12); border-radius: 50%; }
+.onboard-hint strong { color: var(--gold-bright); font-weight: 600; }
 @media (max-width: 768px) {
   /* Stay above the back-to-top + compare-fab; sit centered with safe insets. */
   .onboard-hint {
