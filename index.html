@@ -1111,7 +1111,7 @@ body.theme-night .search-input {
   border-color: rgba(214,165,72,0.35);
   color: var(--ink);
 }
-body.theme-night .search-input::placeholder { color: var(--ink-faded); }
+body.theme-night .search-input::placeholder { color: rgba(240,217,158,0.55); }
 body.theme-night .search-input:focus { background: rgba(214,165,72,0.14); border-color: var(--gold-bright); box-shadow: 0 0 0 3px rgba(214,165,72,0.18); }
 body.theme-night .search-results {
   background: var(--panel-warm);
@@ -1145,8 +1145,14 @@ body.theme-night .compare-card .feats span {
   color: var(--ink);
 }
 body.theme-night .index { background: rgba(214,165,72,0.06); border-color: rgba(214,165,72,0.30); }
-body.theme-night .index-group { background: rgba(255,255,255,0.04); border-color: rgba(214,165,72,0.22); }
-body.theme-night .index-group:hover { background: rgba(214,165,72,0.12); }
+body.theme-night .index-group {
+  background: linear-gradient(180deg, rgba(214,165,72,0.06) 0%, rgba(214,165,72,0.02) 100%);
+  border-color: rgba(214,165,72,0.30);
+}
+body.theme-night .index-group:hover {
+  background: linear-gradient(180deg, rgba(214,165,72,0.16) 0%, rgba(214,165,72,0.08) 100%);
+  border-color: var(--gold-bright);
+}
 body.theme-night .index-item { border-bottom-color: rgba(214,165,72,0.16); }
 body.theme-night .index-item:hover { background: rgba(214,165,72,0.14); }
 body.theme-night .index-group-h { border-bottom-color: var(--gold-bright); }
@@ -1156,7 +1162,11 @@ body.theme-night .about { background: rgba(214,165,72,0.06); border-color: rgba(
 body.theme-night .panel-empty .lead,
 body.theme-night .panel-empty .instruct,
 body.theme-night .panel-tip { color: var(--ink-soft); }
-body.theme-night .shib-letter { background: var(--paper-dark); border-color: rgba(214,165,72,0.40); color: var(--ink); }
+body.theme-night .shib-letter {
+  background: linear-gradient(180deg, #2a3a64 0%, #1d2945 100%);
+  border-color: var(--gold-bright);
+  color: var(--ink-rich);
+}
 body.theme-night .shib-info .row code,
 body.theme-night .kbd {
   background: rgba(214,165,72,0.18);
@@ -1232,6 +1242,75 @@ body.theme-night .subtitle-divider { color: var(--gold-bright); }
 body.theme-night .footer-sources span { color: var(--ink-soft); }
 body.theme-night .site-footer { border-top-color: rgba(214,165,72,0.25); }
 body.theme-night .stat-num { color: var(--gold-bright); }
+body.theme-night .pill-divider { color: rgba(214,165,72,0.40); }
+body.theme-night .filter-label { color: var(--gold-bright); }
+body.theme-night .stat-lbl { color: var(--ink-soft); }
+body.theme-night .subtitle { color: var(--ink-soft); }
+body.theme-night .region-h-en, body.theme-night .region-h-ar { color: var(--ink-rich); }
+body.theme-night .region-h-sub { color: var(--ink-soft); }
+body.theme-night .primer h2, body.theme-night .index h2, body.theme-night .about h2 { color: var(--ink-rich); }
+body.theme-night .primer-ar, body.theme-night .index-h-ar { color: var(--ink-soft); }
+body.theme-night .primer-lead { color: var(--ink-soft); }
+body.theme-night .primer-card .glyph { color: var(--gold-bright); }
+body.theme-night .primer-card .glyph-name { color: var(--gold-bright); }
+body.theme-night .primer-card h3 { color: var(--ink-rich); }
+body.theme-night .index-group-h h3 { color: var(--ink-rich); }
+body.theme-night .index-group-h .desc, body.theme-night .index-group-h .ar { color: var(--ink-soft); }
+body.theme-night .index-group-h h3 .count-badge {
+  background: linear-gradient(180deg, var(--gold-bright) 0%, var(--gold-deep) 100%);
+  color: #14203a;
+}
+body.theme-night .about-section h3 { color: var(--gold-bright); }
+body.theme-night .about-section p { color: var(--ink); }
+body.theme-night .about-section em { color: var(--ink-soft); }
+body.theme-night .footer-note { color: var(--ink-soft); }
+body.theme-night .panel-empty h2 { color: var(--ink-rich); }
+body.theme-night .panel-empty .en-sub { color: var(--gold-bright); }
+body.theme-night .shib-card-h { color: var(--gold-bright); }
+body.theme-night .shib-info .lead { color: var(--ink-rich); }
+body.theme-night .shib-info .row { color: var(--ink-soft); }
+body.theme-night .featured-h { color: var(--gold-bright); }
+body.theme-night .featured-card .name-ar { color: var(--ink-rich); }
+body.theme-night .featured-card .name-en { color: var(--ink-rich); }
+body.theme-night .featured-card .where { color: var(--ink-soft); }
+body.theme-night .compare-card .name-ar { color: var(--ink-rich); }
+body.theme-night .compare-card .name-en { color: var(--ink-rich); }
+body.theme-night .compare-card .name-lat { color: var(--ink-soft); }
+body.theme-night .compare-card .row .lbl { color: var(--gold-bright); }
+body.theme-night .compare-card .row .val { color: var(--ink); }
+body.theme-night .compare-card .open-link { color: var(--gold-bright); border-bottom-color: var(--gold-bright); }
+body.theme-night .compare-card .remove { color: var(--ink-soft); }
+body.theme-night .compare-card .remove:hover { background: rgba(196,106,85,0.20); color: var(--error-red); }
+body.theme-night .region-overview-card .name { color: var(--ink-rich); }
+body.theme-night .region-overview-card .name-ar { color: var(--ink-soft); }
+body.theme-night .region-overview-card .stat { color: var(--gold-bright); }
+body.theme-night .region-overview-card .stat-label { color: var(--ink-soft); }
+body.theme-night .meta-val { color: var(--ink); }
+body.theme-night .meta-lbl { color: var(--gold-bright); }
+body.theme-night .meta-lbl-ar { color: var(--ink-soft); }
+body.theme-night .detail-notes { color: var(--ink); }
+body.theme-night .detail-notes em { color: var(--ink-soft); }
+body.theme-night .detail-notes strong { color: var(--ink-rich); }
+body.theme-night .detail-section-h { color: var(--gold-bright); }
+body.theme-night .detail-h .name-ar { color: var(--ink-rich); }
+body.theme-night .detail-h .name-en { color: var(--ink-rich); }
+body.theme-night .detail-h .name-lat { color: var(--ink-soft); }
+body.theme-night .nav-counter { color: var(--ink-soft); }
+body.theme-night .nav-counter .num { color: var(--ink-rich); }
+body.theme-night .sample-ar { color: var(--ink-rich); }
+body.theme-night .sample-translit { color: var(--ink-soft); }
+body.theme-night .feature-tag { color: var(--ink); }
+body.theme-night .detail-share { color: var(--ink-soft); border-top-color: rgba(214,165,72,0.30); }
+body.theme-night .kbd-card h3 { color: var(--ink-rich); }
+body.theme-night .kbd-card .ar { color: var(--ink-soft); }
+body.theme-night .kbd-card .close-hint { color: var(--ink-soft); }
+body.theme-night .kbd-list li { color: var(--ink); border-top-color: rgba(214,165,72,0.20); }
+body.theme-night .compare-h h3 { color: var(--ink-rich); }
+body.theme-night .compare-h .ar { color: var(--ink-soft); }
+body.theme-night .compare-empty { color: var(--ink-soft); }
+body.theme-night .copy-toast { background: linear-gradient(180deg, #2c1f0c 0%, #1a1004 100%); color: var(--ink); border-color: var(--gold-bright); }
+body.theme-night .search-icon { color: var(--ink-faded); }
+body.theme-night .filter-count[data-empty="true"] { color: var(--error-red); }
 
 /* Region tabs subtle border */
 body.theme-night .region-tabs { background: linear-gradient(180deg, rgba(214,165,72,0.10), rgba(214,165,72,0.04)); border-color: rgba(214,165,72,0.30); }
@@ -1645,15 +1724,15 @@ body.theme-night .theme-toggle { background: linear-gradient(180deg, #1d2945 0%,
 .compare-drawer {
   position: fixed;
   inset: 0;
-  background: rgba(20,15,5,0.78);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
+  /* Solid scrim — covers the whole viewport reliably without depending on
+     backdrop-filter (which composites unpredictably in some renderers). */
+  background: rgba(20,15,5,0.96);
   z-index: 200;
   display: none;
   align-items: flex-end;
   justify-content: center;
 }
-body.theme-night .compare-drawer { background: rgba(0,2,8,0.85); }
+body.theme-night .compare-drawer { background: rgba(0,2,8,0.97); }
 .compare-drawer.show { display: flex; animation: fadeBg 0.25s ease-out; }
 @keyframes fadeBg { from { opacity: 0; } to { opacity: 1; } }
 .compare-panel {
@@ -1794,16 +1873,14 @@ body.theme-night .compare-drawer { background: rgba(0,2,8,0.85); }
 .kbd-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(20,15,5,0.78);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
+  background: rgba(20,15,5,0.96);
   z-index: 250;
   display: none;
   align-items: center;
   justify-content: center;
   padding: 16px;
 }
-body.theme-night .kbd-overlay { background: rgba(0,2,8,0.86); }
+body.theme-night .kbd-overlay { background: rgba(0,2,8,0.97); }
 .kbd-overlay.show { display: flex; animation: fadeBg 0.2s ease-out; }
 .kbd-card {
   background-color: var(--panel-warm);
